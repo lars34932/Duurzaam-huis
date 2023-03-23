@@ -41,22 +41,38 @@ body>main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    align-items: flex-start; /* changed from center to align top */
+    align-items: flex-start;
 }
 
 body>main>section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    width: calc((100% - 6rem) / 3 - 2px); /* adjusted width */
+    padding-left: 4rem;
+    padding-right: 4rem;
+    width: calc((100% - 6rem) / 3 - 2px);
 }
 
 body>main>.weer {
     height: 25rem;
-    width: 140rem; /* adjusted width */
-    max-width: 141rem;
+    width: 100%;
+    margin-left: 5.7rem;
+    margin-right: 5.7rem;
+    margin-bottom: 4rem;
     background-color: white;
     border: 2px solid black;
+}
+
+body>main>section>.tijd-datum>section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 4rem;
+}
+
+body>main>section>.tijd-datum>section>.tijd-text {
+    background: white;
+    color: black;
 }
 
 body>main>section>.gas-elec {
@@ -68,7 +84,7 @@ body>main>section>.gas-elec {
 
 body>main>section>.basic-box {
     height: 25rem;
-    width: 42rem;
+    width: 100%;
     background-color: white;
     border: 2px solid black;
 }
