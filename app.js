@@ -45,7 +45,7 @@ fetch(url)
       const feelsLike = data.current.feelslike_c;
       document.getElementById('buiten-temp').textContent = 'temperatuur: ' + temp + ' °C';
       document.getElementById('gevoel-buiten-temp').textContent = 'voelt als: ' + feelsLike + ' °C';
-      
+
       //weather
       const date = new Date(day.date);
       const dayOfWeek = daysOfWeek[date.getDay()];
@@ -60,3 +60,60 @@ fetch(url)
       }
     });
   });
+
+//line chart
+
+const labels = [
+  "01-04-2023",
+  "02-04-2023",
+  "03-04-2023",
+  "04-04-2023",
+  "05-04-2023",
+  "06-04-2023",
+  "07-04-2023",
+  "08-04-2023",
+  "09-04-2023",
+  "10-04-2023",
+  "11-04-2023",
+  "12-04-2023",
+  "13-04-2023",
+  "14-04-2023",
+  "15-04-2023",
+  "16-04-2023",
+  "17-04-2023",
+  "18-04-2023",
+  "19-04-2023",
+  "20-04-2023",
+  "21-04-2023",
+  "22-04-2023",
+  "23-04-2023",
+  "24-04-2023",
+  "25-04-2023",
+  "26-04-2023",
+  "27-04-2023",
+  "28-04-2023",
+  "29-04-2023",
+  "30-04-2023",
+];
+
+const data = {
+  labels: labels,
+  datasets: [
+    {
+      label: "Stroomverbruik in kWh",
+      data: [8.079777, 8.137023, 7.342858, 7.053496, 7.270503, 7.100186, 7.303998, 8.019138, 7.758457, 7.375831, 6.963016, 6.94666, 6.647699, 6.722635, 7.416199, 7.416199, 7.035284, 6.676003, 6.303382, 6.223864, 6.255561, 6.188339, 6.830834, 6.592309, 6.253589, 5.979423, 5.981221, 6.702422, 6.401808, 6.810389, 6.827731],
+      borderColor: 'rgb(75, 192, 192)',
+    }
+  ]
+}
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    maintainAspectRatio: false
+  }
+}
+
+const chart1 = new Chart(document.getElementById("js--chart--1"), config);

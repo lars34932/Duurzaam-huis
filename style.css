@@ -112,7 +112,7 @@ body>main>section>.weer>.weersection>.weer7 {
 }
 
 body>main>.gas-elec {
-    height: 25rem;
+    height: 30rem;
     width: 100%;
     margin-left: 5.7rem;
     margin-right: 5.7rem;
@@ -122,13 +122,23 @@ body>main>.gas-elec {
 }
 
 body>main>.gas-elec>section {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
+    height: 80%;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body>main>.gas-elec>section>canvas {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 body>main>section>.basic-box {
     height: 25rem;
+
     width: 100%;
     background-color: white;
     border: 2px solid black;
