@@ -14,7 +14,7 @@ body {
 }
 
 body>header {
-    height: 7rem;
+    height: 70px;
     border: 5px solid #008274;
     border-bottom: none;
     background-color: white;
@@ -50,9 +50,8 @@ body>main>section {
     justify-content: space-evenly;
     padding-left: 40px;
     padding-right: 40px;
-    width: calc((100% - 6rem) / 3 - 2px);
+    width: calc((100% - 60px) / 3 - 2px);
 }
-
 
 body>main>section>.tijd-datum>section {
     display: flex;
@@ -60,7 +59,7 @@ body>main>section>.tijd-datum>section {
     align-items: center;
     font-size: 4.5rem;
     padding: 20px;
-    gap: 2rem;
+    gap: 20px;
 }
 
 body>main>section>.tijd-datum>section>.tijd-text {
@@ -72,9 +71,22 @@ body>main>section>.tijd-datum>section>.tijd {
     font-size: 6rem;
 }
 
+body>main>section>.zon-opkomst>section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    gap: 20px;
+}
+
+body>main>section>.zon-opkomst>section>p {
+    font-size: 4rem;
+}
+
 body>main>section>.weer {
-    height: 54rem;
-    width: 40rem;
+    height: 540px;
+    width: 400px;
     background-color: white;
     border: 2px solid black;
 }
@@ -85,8 +97,18 @@ body>main>section>.buiten-temp>section {
     align-items: center;
     padding: 20px;
     padding-top: 30px;
-    gap: 2rem;
-    font-size: 4.5rem;
+    gap: 20px;
+    font-size: 4rem;
+}
+
+body>main>section>.binnen-temp>section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 30px;
+    gap: 20px;
+    font-size: 4rem;
 }
 
 body>main>section>.weer>.weersection {
@@ -104,7 +126,7 @@ body>main>section>.weer>.weersection>p {
 }
 
 body>main>section>.weer>.weersection>.weer1 {
-    padding-top: 1rem;
+    padding-top: 10px;
 }
 
 body>main>section>.weer>.weersection>.weer7 {
@@ -112,11 +134,11 @@ body>main>section>.weer>.weersection>.weer7 {
 }
 
 body>main>.gas-elec {
-    height: 30rem;
+    height: 300px;
     width: 100%;
-    margin-left: 5.7rem;
-    margin-right: 5.7rem;
-    margin-bottom: 4rem;
+    margin-left: 57px;
+    margin-right: 57px;
+    margin-bottom: 40px;
     background-color: white;
     border: 2px solid black;
 }
@@ -137,7 +159,7 @@ body>main>.gas-elec>section>canvas {
 }
 
 body>main>section>.basic-box {
-    height: 25rem;
+    height: 250px;
 
     width: 100%;
     background-color: white;
@@ -145,7 +167,7 @@ body>main>section>.basic-box {
 }
 
 .box {
-    margin-top: 4rem;
+    margin-top: 40px;
 }
 
 .box>p {
@@ -155,4 +177,45 @@ body>main>section>.basic-box {
     display: flex;
     justify-content: center;
     padding-bottom: 4px;
+}
+
+/* 1 rem is altijd 16px hier */
+@media only screen and (max-width: 1245px) {
+    body>main>section>.buiten-temp>section{
+        font-size: 2.5rem;
+    }
+}
+
+@media only screen and (max-width: 1035px) {
+    body>main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body>main>.gas-elec {
+        margin: 64px 0;
+        width: 90vw;
+    }
+
+    body>main>section{
+        width: 90vw;
+        padding: 0;
+    }
+
+    body>main>section>.weer{
+        width: 90vw;
+    }
+
+    article{
+        width: 90vw;
+    }
+
+    body>main>section>.buiten-temp>section{
+        font-size: 4rem;
+    }
+
+    body>main>section>.weer>section>p{
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -12,9 +12,7 @@ function displayDateTime() {
 
 setInterval(displayDateTime, 1000);
 
-//weather
-const url = 'https://api.weatherapi.com/v1/forecast.json?key=916502f3e59140c4afc85345232303&q=Amsterdam&days=7';
-
+//weather 
 const daysOfWeek = ['Zo', 'Ma', 'Di', 'Wo', 'Do', 'Vr', 'Za'];
 
 const conditionEmojiMap = {
@@ -35,7 +33,7 @@ const conditionEmojiMap = {
   'Thundery outbreaks possible': '⛈️',
 };
 
-fetch(url)
+fetch("https://api.weatherapi.com/v1/forecast.json?key=0779b378ed5a455db0b124708231004&q=Amsterdam&days=7")
   .then(response => response.json())
   .then(data => {
     const forecast = data.forecast.forecastday;
@@ -54,6 +52,17 @@ fetch(url)
       const emoji = conditionEmojiMap[condition] || '❓';
       const elementId = `weer${index + 1}`;
       const element = document.getElementById(elementId);
+
+      //zonsopkomst en ondergang
+      const currentAstro = data.forecast.forecastday[0].astro;
+      const zonsopkomst = currentAstro.sunrise;
+      const zonsondergang = currentAstro.sunset;
+
+      const euzonsopkomst = new Date(`2023-04-10 ${zonsopkomst}`).toLocaleString('nl-NL', { hour: 'numeric', minute: 'numeric', hour12: false });
+      const euzonsondergang = new Date(`2023-04-10 ${zonsondergang}`).toLocaleString('nl-NL', { hour: 'numeric', minute: 'numeric', hour12: false });
+
+      document.getElementById("zonsopkomst").textContent = "opkomst: " + euzonsopkomst;
+      document.getElementById("zonsondergang").textContent = "ondergang: " + euzonsondergang;
 
       if (element) {
         element.textContent = `${dayOfWeek} ${emoji} ${tempC}°C`;
@@ -117,3 +126,16 @@ const config = {
 }
 
 const chart1 = new Chart(document.getElementById("js--chart--1"), config);
+
+function readTemp() {
+  fetch('./jsonInput.json')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById("binnen-temp").textContent = "temperatuur: " + Math.round(data.Temperature) + " °C";
+    document.getElementById("binnen-humid").textContent = "vochtigheid: " + Math.round(data.Humidity) + " %";
+  });
+}
+
+setInterval(readTemp, 1000)
+
+
